@@ -149266,6 +149266,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndLevel_Screen
       objectReference: {fileID: 0}
+    - target: {fileID: 4393671248863444493, guid: 59ed4441e44660547be1966d927f6064, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8081254780255267505, guid: 59ed4441e44660547be1966d927f6064, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
