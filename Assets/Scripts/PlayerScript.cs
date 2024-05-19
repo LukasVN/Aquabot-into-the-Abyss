@@ -23,6 +23,10 @@ public class PlayerScript : MonoBehaviour
     public Transform spawnpoint;
     public float fadeDuration = 1f;
     public bool respawning;
+    private AudioSource audioSource;
+    public AudioClip deathSound;
+    public AudioClip impulseSound;
+    public AudioClip jumpSound;
 
     void Start()
     {
@@ -32,6 +36,7 @@ public class PlayerScript : MonoBehaviour
         blackScreen.color = blackColor;
         blackScreen.gameObject.SetActive(false);
         //
+        audioSource = GetComponent<AudioSource>();
         respawning = false;
         cooldownSlider.value = 0;
         habilityCooldown = 0;
@@ -100,6 +105,7 @@ public class PlayerScript : MonoBehaviour
             animator.SetBool("isWalking",false); 
             animator.SetBool("isIdle",false);
             animator.SetBool("isJumping",true);  
+            audioSource.PlayOneShot(jumpSound);
             animator.SetBool("isFalling",false);  
         }
         else{
@@ -122,6 +128,7 @@ public class PlayerScript : MonoBehaviour
             rb.gravityScale = 0;
             if(!isGrounded && rb.velocity.y < 0){
                 rb.AddForce(Vector2.down * recoilForce * 2,ForceMode2D.Impulse);
+                audioSource.PlayOneShot(impulseSound);
             }
             else{
                 rb.AddForce(Vector2.down * recoilForce/2,ForceMode2D.Impulse);
@@ -134,9 +141,11 @@ public class PlayerScript : MonoBehaviour
             rb.gravityScale = 0;
             if(!isGrounded && rb.velocity.y < 0){
                 rb.AddForce(Vector2.up * recoilForce * 2,ForceMode2D.Impulse);
+                audioSource.PlayOneShot(impulseSound);
             }
             else{
                 rb.AddForce(Vector2.up * recoilForce/2,ForceMode2D.Impulse);
+                audioSource.PlayOneShot(impulseSound);
             }
             StartCoroutine("ReenableGravity");
             habilityCooldown = 1f;
@@ -159,6 +168,11 @@ public class PlayerScript : MonoBehaviour
     public void DeathReset(){
         rb.velocity = Vector2.zero;
         StartCoroutine("FadeTransition");
+        audioSource.PlayOneShot(deathSound);
+        animator.SetBool("isIdle",true);
+        animator.SetBool("isWalking",false); 
+        animator.SetBool("isJumping",false);  
+        animator.SetBool("isFalling",false);  
     }
 
     public void SetSpawnpoint(Transform newSpawnpoint){
