@@ -166,13 +166,15 @@ public class PlayerScript : MonoBehaviour
     }
 
     public void DeathReset(){
-        rb.velocity = Vector2.zero;
-        StartCoroutine("FadeTransition");
-        audioSource.PlayOneShot(deathSound);
-        animator.SetBool("isIdle",true);
-        animator.SetBool("isWalking",false); 
-        animator.SetBool("isJumping",false);  
-        animator.SetBool("isFalling",false);  
+        if(!respawning){
+            rb.velocity = Vector2.zero;
+            StartCoroutine("FadeTransition");
+            audioSource.PlayOneShot(deathSound);
+            animator.SetBool("isIdle",true);
+            animator.SetBool("isWalking",false); 
+            animator.SetBool("isJumping",false);  
+            animator.SetBool("isFalling",false);  
+        }
     }
 
     public void SetSpawnpoint(Transform newSpawnpoint){

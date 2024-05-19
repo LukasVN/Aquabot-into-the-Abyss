@@ -8,16 +8,34 @@ public class PressToStartScript : MonoBehaviour
 {
     private Text pressText; // Reference to the Text component
     public float duration = 0.5f; // Duration of the lerp
+    public GameObject loadingScreen;
+    private AudioSource audioSource;
+    public AudioClip startSound;
+    private bool disabledOnce;
+
+    private void OnEnable() {
+        if(disabledOnce){
+            StartCoroutine(LerpTextAlphaLoop());
+        }
+    }
+    private void OnDisable() {
+        disabledOnce = true;
+    }
 
     private void Start()
     {
+        disabledOnce = false;
+        loadingScreen.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
         pressText = GetComponent<Text>();
         StartCoroutine(LerpTextAlphaLoop());
     }
 
     private void Update() {
         if(Input.GetKeyDown(KeyCode.Space)){
-            SceneManager.LoadScene("Tutorial_Scene");
+            audioSource.PlayOneShot(startSound);
+            loadingScreen.SetActive(true);
+            Invoke("LoadScene",1f);
         }
     }
 
@@ -49,5 +67,9 @@ public class PressToStartScript : MonoBehaviour
         // Ensure the final alpha is set correctly
         Color finalColor = new Color(originalColor.r, originalColor.g, originalColor.b, targetAlpha);
         pressText.color = finalColor;
+    }
+
+    private void LoadScene(){
+        SceneManager.LoadScene("Tutorial_Scene");
     }
 }
