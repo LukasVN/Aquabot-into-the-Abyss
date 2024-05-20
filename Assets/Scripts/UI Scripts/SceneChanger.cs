@@ -18,4 +18,8 @@ public class SceneChanger : MonoBehaviour
             SceneManager.LoadScene(sceneToLoad);
         }
     }
+
+    public void LoadScene(string sceneToLoad){
+        SceneManager.LoadScene(sceneToLoad);
+    }
 }

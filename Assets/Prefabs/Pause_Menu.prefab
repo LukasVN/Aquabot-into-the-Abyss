@@ -1712,6 +1712,7 @@ MonoBehaviour:
   musicValueText: {fileID: 8931375267660222512}
   sFXSlider: {fileID: 5888427736798398077}
   sFXValueText: {fileID: 4857968106531521720}
+  clickSound: {fileID: 8300000, guid: fb4a8149bb1f4a94aa6fd49a85faa74e, type: 3}
 --- !u!1 &7262704124332888382
 GameObject:
   m_ObjectHideFlags: 0
@@ -1990,13 +1991,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 585188cdc4600544eb408bee749e4b3a, type: 3}
+    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
     m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0

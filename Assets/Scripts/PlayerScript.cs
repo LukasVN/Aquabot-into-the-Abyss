@@ -78,6 +78,8 @@ public class PlayerScript : MonoBehaviour
 
         if(isGrounded){
             animator.SetBool("isFalling",false);
+            animator.SetBool("ImpulsingUp",false); 
+            animator.SetBool("ImpulsingDown",false);   
         }
 
         if(moveInput != 0 && isGrounded){
@@ -86,13 +88,19 @@ public class PlayerScript : MonoBehaviour
             animator.SetBool("isIdle",false);
             animator.SetBool("isIdle",false);
             animator.SetBool("isWalking",true);
+            animator.SetBool("ImpulsingUp",false);  
+            animator.SetBool("ImpulsingDown",false); 
         }
         else{
             animator.SetBool("isWalking",false);       
+            animator.SetBool("ImpulsingUp",false);  
+            animator.SetBool("ImpulsingDown",false); 
         }
         if (Mathf.Abs(moveInput) < 0.01f && isGrounded && !animator.GetBool("isJumping"))
         {
             animator.SetBool("isWalking",false);   
+            animator.SetBool("ImpulsingUp",false);  
+            animator.SetBool("ImpulsingDown",false); 
             // animator.SetBool("isJumping",false); 
             animator.SetBool("isIdle",true);
         }
@@ -107,6 +115,8 @@ public class PlayerScript : MonoBehaviour
             animator.SetBool("isJumping",true);  
             audioSource.PlayOneShot(jumpSound);
             animator.SetBool("isFalling",false);  
+            animator.SetBool("ImpulsingUp",false);  
+            animator.SetBool("ImpulsingDown",false); 
         }
         else{
             animator.SetBool("isJumping",false);  
@@ -116,6 +126,8 @@ public class PlayerScript : MonoBehaviour
             animator.SetBool("isWalking",false);
             animator.SetBool("isIdle",false);
             animator.SetBool("isFalling",true);  
+            animator.SetBool("ImpulsingUp",false);  
+            animator.SetBool("ImpulsingDown",false); 
         }
 
         if(habilityCooldown > 0){
@@ -129,9 +141,12 @@ public class PlayerScript : MonoBehaviour
             if(!isGrounded && rb.velocity.y < 0){
                 rb.AddForce(Vector2.down * recoilForce * 2,ForceMode2D.Impulse);
                 audioSource.PlayOneShot(impulseSound);
+                animator.SetBool("ImpulsingDown",true);  
             }
             else{
                 rb.AddForce(Vector2.down * recoilForce/2,ForceMode2D.Impulse);
+                audioSource.PlayOneShot(impulseSound);
+                animator.SetBool("ImpulsingDown",true);  
             }
             StartCoroutine("ReenableGravity");
             habilityCooldown = 1f;
@@ -142,10 +157,12 @@ public class PlayerScript : MonoBehaviour
             if(!isGrounded && rb.velocity.y < 0){
                 rb.AddForce(Vector2.up * recoilForce * 2,ForceMode2D.Impulse);
                 audioSource.PlayOneShot(impulseSound);
+                animator.SetBool("ImpulsingUp",true);  
             }
             else{
                 rb.AddForce(Vector2.up * recoilForce/2,ForceMode2D.Impulse);
                 audioSource.PlayOneShot(impulseSound);
+                animator.SetBool("ImpulsingUp",true);  
             }
             StartCoroutine("ReenableGravity");
             habilityCooldown = 1f;
@@ -174,6 +191,8 @@ public class PlayerScript : MonoBehaviour
             animator.SetBool("isWalking",false); 
             animator.SetBool("isJumping",false);  
             animator.SetBool("isFalling",false);  
+            animator.SetBool("ImpulsingUp",false);  
+            animator.SetBool("ImpulsingDown",false);  
         }
     }
 

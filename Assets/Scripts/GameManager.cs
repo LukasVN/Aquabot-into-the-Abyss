@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private AudioSource playerAudioSource;
     public AudioClip coinSound;
     public Text coinCounter;
-    private int coins;
+    public int coins;
 
     private void Awake() {
         instance = this;
@@ -24,11 +24,6 @@ public class GameManager : MonoBehaviour
         coins = 0;
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 61;
-    }
-
-    void Update()
-    {
-        
     }
 
     public void AddCoin(){

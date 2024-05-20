@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class LevelTimer : MonoBehaviour
 {
+    public static LevelTimer instance;
     private Text timer;
     private int minutes;
     private float seconds;
@@ -16,6 +17,12 @@ public class LevelTimer : MonoBehaviour
     private const int mediumTime = 4;
     private const int lateTime = 8;
     private const int maxTime = 10;
+
+    private void Awake() {
+        instance = this;
+    }
+
+
     void Start()
     {
         minutes = 0;
@@ -46,6 +53,11 @@ public class LevelTimer : MonoBehaviour
             break;
         }
 
-        timer.text = $"{minutes:D2}:{(int)seconds:D2}";
+        timer.text = GetTimer();
     }
+
+    public string GetTimer(){
+        return $"{minutes:D2}:{(int)seconds:D2}";
+    }
+
 }

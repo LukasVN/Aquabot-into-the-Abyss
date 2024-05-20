@@ -14,6 +14,7 @@ public class SettingsManager : MonoBehaviour
     public Text musicValueText;
     public Slider sFXSlider;
     public Text sFXValueText;
+    public AudioClip clickSound;
 
 
     void Start()
@@ -56,12 +57,14 @@ public class SettingsManager : MonoBehaviour
     }
 
     public void OnClickShowSettingsMenu(){
+        sfxSound.PlayOneShot(clickSound);
         main_Menu.SetActive(false);
         settingsButton.SetActive(false);
         settings_Menu.SetActive(true);
     }
 
     public void OnClickSavePlayerPrefs(){
+        sfxSound.PlayOneShot(clickSound);
         PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
         PlayerPrefs.SetFloat("SFXVolume", sFXSlider.value);
         settingsButton.SetActive(true);
