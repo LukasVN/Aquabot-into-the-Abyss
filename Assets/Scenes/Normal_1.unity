@@ -902,7 +902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54e33032d9de174ebc9d096035c971c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!43 &12647394
+--- !u!43 &215433598
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2005,6 +2005,18 @@ PrefabInstance:
       propertyPath: mainMenuMusic
       value: 
       objectReference: {fileID: 357779455}
+    - target: {fileID: 2728369737596958089, guid: d6facdcecc1e0024d9b36c51b64507c3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728369737596958089, guid: d6facdcecc1e0024d9b36c51b64507c3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728369737596958089, guid: d6facdcecc1e0024d9b36c51b64507c3, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4405966068829470196, guid: d6facdcecc1e0024d9b36c51b64507c3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2085,9 +2097,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4913390582326585435, guid: d6facdcecc1e0024d9b36c51b64507c3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5314402691801749093, guid: d6facdcecc1e0024d9b36c51b64507c3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5314402691801749093, guid: d6facdcecc1e0024d9b36c51b64507c3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5314402691801749093, guid: d6facdcecc1e0024d9b36c51b64507c3, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6757401086211112595, guid: d6facdcecc1e0024d9b36c51b64507c3, type: 3}
       propertyPath: m_Name
       value: Pause_Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7921593573258386936, guid: d6facdcecc1e0024d9b36c51b64507c3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7921593573258386936, guid: d6facdcecc1e0024d9b36c51b64507c3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206722285215309628, guid: d6facdcecc1e0024d9b36c51b64507c3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206722285215309628, guid: d6facdcecc1e0024d9b36c51b64507c3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
